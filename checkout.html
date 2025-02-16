@@ -7,8 +7,22 @@
   <!-- Load the same fonts as index.html -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Parisienne&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Use the same styles as in shop.html for consistency */
-    /* (You can reuse your CSS or link to a common stylesheet) */
+    /* Keyframes for pastel color transition */
+    @keyframes pastelTransition {
+      0%   { color: #ffb3ba; }
+      25%  { color: #ffdfba; }
+      50%  { color: #ffffba; }
+      75%  { color: #bae1ff; }
+      100% { color: #ffb3ba; }
+    }
+    /* Keyframes for pastel blue transition */
+    @keyframes pastelBlueTransition {
+      0%   { color: #ffb6c1; }
+      33%  { color: #add8e6; }
+      66%  { color: #afeeee; }
+      100% { color: #ffb6c1; }
+    }
+    /* Basic reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       display: flex; flex-direction: column; min-height: 100vh;
@@ -17,6 +31,7 @@
       font-family: 'Quicksand', sans-serif;
       justify-content: flex-start; text-align: center;
     }
+    /* Rainbow Gradient Animation */
     @keyframes rainbow {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -38,26 +53,54 @@
       position: relative; text-align: center;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
-    .top-left-container { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 150px; display: flex; flex-direction: column; align-items: center; }
-    .header-social-links { width: 100%; display: flex; justify-content: space-between; margin-bottom: 5px; }
-    .header-social-links img { width: 25px; transition: transform 0.3s ease; }
+    .top-left-container {
+      position: absolute; left: 10px; top: 50%;
+      transform: translateY(-50%); width: 150px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .header-social-links {
+      width: 100%; display: flex;
+      justify-content: space-between; margin-bottom: 5px;
+    }
+    .header-social-links img {
+      width: 25px; transition: transform 0.3s ease;
+    }
     .header-social-links img:hover { transform: scale(1.2); }
+    .social-links img {
+      width: 25px; margin: 0 5px;
+      transition: transform 0.3s ease;
+    }
+    .social-links img:hover { transform: scale(1.2); }
     header h1 {
-      font-family: 'Parisienne', cursive; font-size: 4.5rem; margin-bottom: 10px;
+      font-family: 'Parisienne', cursive; font-size: 4.5rem;
+      margin-bottom: 10px;
       background: linear-gradient(45deg, #9a6fbc, #b9a0d4, #6b52a3, #b9a0d4, #9a6fbc);
-      background-size: 400% 400%; -webkit-background-clip: text; background-clip: text;
+      background-size: 400% 400%;
+      -webkit-background-clip: text; background-clip: text;
       color: transparent; animation: rainbow 5s ease infinite;
     }
-    header p { font-family: 'Dancing Script', cursive; font-size: 2rem; animation: pastelTransition 10s infinite linear; }
+    .special-s { font-family: 'Great Vibes', cursive; animation: none; color: inherit; }
+    header p {
+      font-family: 'Dancing Script', cursive; font-size: 2rem;
+      animation: pastelTransition 10s infinite linear;
+    }
+    .top-left-image {
+      width: 150px; border-radius: 10px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .top-left-image:hover { transform: scale(1.1); opacity: 0.8; }
     nav {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 20px; background: rgba(51,51,51,0.7); backdrop-filter: blur(5px);
-      position: sticky; top: 0; z-index: 1000; margin-bottom: 50px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      padding: 20px; background: rgba(51,51,51,0.7);
+      backdrop-filter: blur(5px); position: sticky; top: 0; z-index: 1000;
+      margin-bottom: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     .nav-left { display: flex; align-items: center; gap: 10px; }
     .nav-logo-img { width: 40px; border-radius: 50%; }
-    .logo-text { font-family: 'Parisienne', cursive; font-size: 2rem; font-weight: bold; animation: pastelBlueTransition 10s infinite linear; }
+    .logo-text {
+      font-family: 'Parisienne', cursive; font-size: 2rem; font-weight: bold;
+      animation: pastelBlueTransition 10s infinite linear;
+    }
     .nav-right { display: flex; gap: 30px; flex-wrap: wrap; }
     .nav-button {
       padding: 15px 30px; border-radius: 30px; text-decoration: none;
@@ -70,29 +113,35 @@
     }
     .nav-button:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
     main { flex: 1; padding: 20px; }
-    /* Checkout Section with transparent dark grey container */
-    #checkout {
+    /* Our Products Section with transparent dark grey container */
+    #products {
       background: rgba(51,51,51,0.7);
       border: 5px solid #9a6fbc;
       border-radius: 25px;
-      margin: 20px auto;
+      margin: 20px 0;
       padding: 20px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       transition: box-shadow 0.3s ease;
-      max-width: 600px;
+      text-align: center;
     }
-    #checkout:hover { box-shadow: 0 0 20px rgba(0,0,0,0.7); }
-    /* Checkout form styles */
-    .form-group { margin-bottom: 15px; text-align: left; }
-    .form-group label { display: block; margin-bottom: 5px; color: #fff; }
-    .form-group input { width: 100%; padding: 10px; border: none; border-radius: 5px; }
-    #order-summary {
+    #products:hover { box-shadow: 0 0 20px rgba(0,0,0,0.7); }
+    .product {
+      display: inline-block;
+      width: 250px;
+      margin: 20px;
       background: rgba(255,255,255,0.8);
-      padding: 10px; border-radius: 5px;
-      margin-bottom: 15px;
-      color: #000;
-      text-align: left;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s ease;
+      text-align: center;
     }
+    .product:hover { transform: scale(1.05); }
+    .product img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
+    .product h3 { font-family: 'Parisienne', cursive; color: #9a6fbc; margin-bottom: 10px; }
+    .product p { font-size: 1.1rem; color: #444; margin-bottom: 10px; }
+    .product .price { font-weight: bold; font-size: 1.3rem; color: #9a6fbc; }
     .btn {
       padding: 12px 20px; border-radius: 30px;
       font-size: 1rem; font-weight: bold;
@@ -103,14 +152,60 @@
       margin: 10px 5px;
     }
     .btn:hover { background-color: #7b4a97; }
+    .cart-button {
+      position: fixed; bottom: 20px; right: 20px;
+      background-color: #9a6fbc; color: black;
+      padding: 15px 20px; border-radius: 50%;
+      border: none; font-size: 1.5rem; cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .cart-button:hover { background-color: #7b4a97; transform: scale(1.1); }
     footer {
       background: rgba(51,51,51,0.7);
       padding: 20px; border-top: 3px solid rgba(255,255,255,0.3);
       margin-top: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
-    footer .social-links img { width: 25px; margin: 0 5px; transition: transform 0.3s ease; }
+    footer .social-links img {
+      width: 25px; margin: 0 5px; transition: transform 0.3s ease;
+    }
     footer .social-links img:hover { transform: scale(1.2); }
     footer p { color: #fff; margin-top: 10px; }
+    /* Chat-Style Cart Modal */
+    .chat-modal {
+      display: none;
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      width: 300px;
+      background: #fefefe;
+      border: 1px solid #888;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      z-index: 2000;
+      padding: 15px;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    .chat-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+    .chat-modal-header h2 {
+      font-size: 1.2rem;
+      font-family: 'Parisienne', cursive;
+      color: #9a6fbc;
+    }
+    .chat-modal-close {
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: #aaa;
+    }
+    .chat-modal-close:hover { color: #000; }
+    .chat-modal-content p { margin: 5px 0; }
   </style>
 </head>
 <body>
@@ -161,7 +256,7 @@
           <label for="email">Email Address</label>
           <input type="email" id="email" name="email" required>
         </div>
-        <!-- Add additional form fields as necessary -->
+        <!-- Additional form fields can be added here -->
         <button type="submit" class="btn">Place Order</button>
       </form>
     </section>
@@ -185,7 +280,7 @@
     <p>&copy; 2023 Pretty Little Stitches. All rights reserved.</p>
   </footer>
   <script>
-    // When the checkout page loads, display cart items in the order summary
+    // When checkout page loads, display the order summary from localStorage
     document.addEventListener("DOMContentLoaded", function() {
       displayOrderSummary();
       document.getElementById('checkout-form').addEventListener('submit', function(e) {
@@ -209,16 +304,29 @@
         summaryDiv.innerHTML = "<p>Your cart is empty.</p>";
       } else {
         let total = 0;
-        cart.forEach(item => {
-          summaryDiv.innerHTML += `<p>${item.product} - $${item.price.toFixed(2)}</p>`;
+        cart.forEach((item, index) => {
+          summaryDiv.innerHTML += `
+            <div class="cart-item">
+              <p>${item.product} - $${item.price.toFixed(2)}</p>
+              <button class="btn" onclick="removeCartItem(${index})">Remove</button>
+            </div>
+          `;
           total += item.price;
         });
         summaryDiv.innerHTML += `<p><strong>Total: $${total.toFixed(2)}</strong></p>`;
       }
     }
     
+    function removeCartItem(index) {
+      let cart = getCartItems();
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      displayOrderSummary();
+    }
+    
     function clearCart() {
       localStorage.removeItem('cart');
+      displayOrderSummary();
     }
   </script>
 </body>
