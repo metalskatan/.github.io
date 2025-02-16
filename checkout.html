@@ -25,14 +25,11 @@
     /* Basic reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      display: flex; 
-      flex-direction: column; 
-      min-height: 100vh;
+      display: flex; flex-direction: column; min-height: 100vh;
       background-color: #6a3d8d;
       background-image: linear-gradient(45deg, #4b2f6b 0%, #7b4a97 100%);
       font-family: 'Quicksand', sans-serif;
-      justify-content: flex-start; 
-      text-align: center;
+      justify-content: flex-start; text-align: center;
     }
     /* Rainbow Gradient Animation */
     @keyframes rainbow {
@@ -43,10 +40,8 @@
     .rainbow-text {
       background: linear-gradient(45deg, #9a6fbc, #b9a0d4, #6b52a3, #b9a0d4, #9a6fbc);
       background-size: 400% 400%;
-      -webkit-background-clip: text; 
-      background-clip: text;
-      color: transparent; 
-      animation: rainbow 5s ease infinite;
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent; animation: rainbow 5s ease infinite;
     }
     header {
       padding: 50px 0;
@@ -55,123 +50,70 @@
       border-bottom: 3px solid rgba(255,255,255,0.3);
       margin-bottom: 50px;
       border-radius: 15px;
-      position: relative; 
-      text-align: center;
+      position: relative; text-align: center;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     .top-left-container {
-      position: absolute; 
-      left: 10px; 
-      top: 50%;
-      transform: translateY(-50%);
-      width: 150px;
-      display: flex; 
-      flex-direction: column; 
-      align-items: center;
+      position: absolute; left: 10px; top: 50%;
+      transform: translateY(-50%); width: 150px;
+      display: flex; flex-direction: column; align-items: center;
     }
     .header-social-links {
-      width: 100%; 
-      display: flex;
-      justify-content: space-between; 
-      margin-bottom: 5px;
+      width: 100%; display: flex;
+      justify-content: space-between; margin-bottom: 5px;
     }
     .header-social-links img {
-      width: 25px; 
-      transition: transform 0.3s ease;
+      width: 25px; transition: transform 0.3s ease;
     }
     .header-social-links img:hover { transform: scale(1.2); }
     .social-links img {
-      width: 25px; 
-      margin: 0 5px;
+      width: 25px; margin: 0 5px;
       transition: transform 0.3s ease;
     }
     .social-links img:hover { transform: scale(1.2); }
     header h1 {
-      font-family: 'Parisienne', cursive; 
-      font-size: 4.5rem;
+      font-family: 'Parisienne', cursive; font-size: 4.5rem;
       margin-bottom: 10px;
       background: linear-gradient(45deg, #9a6fbc, #b9a0d4, #6b52a3, #b9a0d4, #9a6fbc);
       background-size: 400% 400%;
-      -webkit-background-clip: text; 
-      background-clip: text;
-      color: transparent; 
-      animation: rainbow 5s ease infinite;
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent; animation: rainbow 5s ease infinite;
     }
-    .special-s { 
-      font-family: 'Great Vibes', cursive; 
-      animation: none; 
-      color: inherit; 
-    }
+    .special-s { font-family: 'Great Vibes', cursive; animation: none; color: inherit; }
     header p {
-      font-family: 'Dancing Script', cursive; 
-      font-size: 2rem;
+      font-family: 'Dancing Script', cursive; font-size: 2rem;
       animation: pastelTransition 10s infinite linear;
     }
     .top-left-image {
-      width: 150px; 
-      border-radius: 10px;
+      width: 150px; border-radius: 10px;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
-    .top-left-image:hover { 
-      transform: scale(1.1); 
-      opacity: 0.8; 
-    }
+    .top-left-image:hover { transform: scale(1.1); opacity: 0.8; }
     nav {
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center;
-      padding: 20px; 
-      background: rgba(51,51,51,0.7);
-      backdrop-filter: blur(5px); 
-      position: sticky; 
-      top: 0; 
-      z-index: 1000;
-      margin-bottom: 50px; 
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px; background: rgba(51,51,51,0.7);
+      backdrop-filter: blur(5px); position: sticky; top: 0; z-index: 1000;
+      margin-bottom: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
-    .nav-left { 
-      display: flex; 
-      align-items: center; 
-      gap: 10px; 
-    }
-    .nav-logo-img { 
-      width: 40px; 
-      border-radius: 50%; 
-    }
+    .nav-left { display: flex; align-items: center; gap: 10px; }
+    .nav-logo-img { width: 40px; border-radius: 50%; }
     .logo-text {
-      font-family: 'Parisienne', cursive; 
-      font-size: 2rem; 
-      font-weight: bold;
+      font-family: 'Parisienne', cursive; font-size: 2rem; font-weight: bold;
       animation: pastelBlueTransition 10s infinite linear;
     }
-    .nav-right { 
-      display: flex; 
-      gap: 30px; 
-      flex-wrap: wrap; 
-    }
+    .nav-right { display: flex; gap: 30px; flex-wrap: wrap; }
     .nav-button {
-      padding: 15px 30px; 
-      border-radius: 30px; 
-      text-decoration: none;
-      font-family: 'Dancing Script', cursive; 
-      font-size: 1.5rem; 
-      font-weight: bold;
+      padding: 15px 30px; border-radius: 30px; text-decoration: none;
+      font-family: 'Dancing Script', cursive; font-size: 1.5rem; font-weight: bold;
       color: black;
       background: linear-gradient(45deg, #9a6fbc, #b9a0d4, #6b52a3, #b9a0d4, #9a6fbc);
-      background-size: 400% 400%; 
-      animation: rainbow 5s ease infinite;
+      background-size: 400% 400%; animation: rainbow 5s ease infinite;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       transition: transform 0.3s ease;
     }
-    .nav-button:hover { 
-      transform: scale(1.1); 
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3); 
-    }
-    main { 
-      flex: 1; 
-      padding: 20px; 
-    }
-    /* Checkout Section with grid layout for order summary */
+    .nav-button:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+    main { flex: 1; padding: 20px; }
+    /* Checkout Section styling with grid layout for order summary */
     #checkout {
       background: rgba(51,51,51,0.7);
       border: 5px solid #9a6fbc;
@@ -181,27 +123,10 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       transition: box-shadow 0.3s ease;
       max-width: 600px;
+      text-align: center;
     }
-    #checkout:hover { 
-      box-shadow: 0 0 20px rgba(0,0,0,0.7); 
-    }
-    /* Checkout Form Styles */
-    .form-group {
-      margin-bottom: 15px;
-      text-align: left;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #fff;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-    }
-    /* Order Summary Grid */
+    #checkout:hover { box-shadow: 0 0 20px rgba(0,0,0,0.7); }
+    /* Order Summary Grid Styles */
     #order-summary {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -214,9 +139,22 @@
       margin-bottom: 15px;
       color: #000;
     }
+    #order-summary .order-row {
+      display: contents;
+      border-bottom: 1px solid #9a6fbc;
+      padding-bottom: 5px;
+    }
+    #order-summary .order-row:last-child {
+      border-bottom: none;
+    }
     #order-summary p {
       margin: 0;
       padding: 5px 0;
+    }
+    /* Checkout Form - Now minimal, no extra fields */
+    /* You wanted to remove the full name and address parts */
+    #checkout-form {
+      margin-top: 20px;
     }
     /* Button Styles (same as before) */
     .btn {
@@ -286,18 +224,10 @@
     <section id="checkout">
       <h2>Checkout</h2>
       <div id="order-summary">
-        <!-- Order summary items will be inserted here in a grid -->
+        <!-- Order summary items will be inserted here in a grid format -->
       </div>
+      <!-- Minimal checkout form now -->
       <form id="checkout-form">
-        <div class="form-group">
-          <label for="full-name">Full Name</label>
-          <input type="text" id="full-name" name="full-name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <!-- Additional form fields can be added here -->
         <button type="submit" class="btn">Place Order</button>
       </form>
     </section>
@@ -321,11 +251,12 @@
     <p>&copy; 2023 Pretty Little Stitches. All rights reserved.</p>
   </footer>
   <script>
+    // When the checkout page loads, display the order summary from localStorage
     document.addEventListener("DOMContentLoaded", function() {
       displayOrderSummary();
       document.getElementById('checkout-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        // In a real implementation, process payment here.
+        // Simulate order processing
         alert("Thank you for your order!");
         clearCart();
         displayOrderSummary();
@@ -344,19 +275,18 @@
         summaryDiv.innerHTML = "<p>Your cart is empty.</p>";
       } else {
         let total = 0;
-        // Set grid layout for the order summary
-        summaryDiv.style.display = "grid";
-        summaryDiv.style.gridTemplateColumns = "1fr auto";
-        summaryDiv.style.gap = "10px";
+        // Use grid layout to display each item with a remove button
         cart.forEach((item, index) => {
           summaryDiv.innerHTML += `
-            <div>${item.product} - $${item.price.toFixed(2)}</div>
-            <div><button class="btn" onclick="removeCartItem(${index})">🗑️</button></div>
+            <div class="order-row">
+              <div>${item.product} - $${item.price.toFixed(2)}</div>
+              <div><button class="btn" onclick="removeCartItem(${index})">🗑️</button></div>
+            </div>
           `;
           total += item.price;
         });
         summaryDiv.innerHTML += `
-          <div style="grid-column: 1 / -1; text-align: right; font-weight: bold;">
+          <div class="order-row" style="font-weight: bold; text-align: right; grid-column: 1 / -1;">
             Total: $${total.toFixed(2)}
           </div>
         `;
