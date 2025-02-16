@@ -25,11 +25,14 @@
     /* Basic reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      display: flex; flex-direction: column; min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
       background-color: #6a3d8d;
       background-image: linear-gradient(45deg, #4b2f6b 0%, #7b4a97 100%);
       font-family: 'Quicksand', sans-serif;
-      justify-content: flex-start; text-align: center;
+      justify-content: flex-start;
+      text-align: center;
     }
     /* Rainbow Gradient Animation */
     @keyframes rainbow {
@@ -40,8 +43,10 @@
     .rainbow-text {
       background: linear-gradient(45deg, #9a6fbc, #b9a0d4, #6b52a3, #b9a0d4, #9a6fbc);
       background-size: 400% 400%;
-      -webkit-background-clip: text; background-clip: text;
-      color: transparent; animation: rainbow 5s ease infinite;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: rainbow 5s ease infinite;
     }
     header {
       padding: 50px 0;
@@ -50,70 +55,99 @@
       border-bottom: 3px solid rgba(255,255,255,0.3);
       margin-bottom: 50px;
       border-radius: 15px;
-      position: relative; text-align: center;
+      position: relative;
+      text-align: center;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     .top-left-container {
-      position: absolute; left: 10px; top: 50%;
-      transform: translateY(-50%); width: 150px;
-      display: flex; flex-direction: column; align-items: center;
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .header-social-links {
-      width: 100%; display: flex;
-      justify-content: space-between; margin-bottom: 5px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
     }
     .header-social-links img {
-      width: 25px; transition: transform 0.3s ease;
+      width: 25px;
+      transition: transform 0.3s ease;
     }
     .header-social-links img:hover { transform: scale(1.2); }
     .social-links img {
-      width: 25px; margin: 0 5px;
+      width: 25px;
+      margin: 0 5px;
       transition: transform 0.3s ease;
     }
     .social-links img:hover { transform: scale(1.2); }
     header h1 {
-      font-family: 'Parisienne', cursive; font-size: 4.5rem;
+      font-family: 'Parisienne', cursive;
+      font-size: 4.5rem;
       margin-bottom: 10px;
       background: linear-gradient(45deg, #9a6fbc, #b9a0d4, #6b52a3, #b9a0d4, #9a6fbc);
       background-size: 400% 400%;
-      -webkit-background-clip: text; background-clip: text;
-      color: transparent; animation: rainbow 5s ease infinite;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: rainbow 5s ease infinite;
     }
     .special-s { font-family: 'Great Vibes', cursive; animation: none; color: inherit; }
     header p {
-      font-family: 'Dancing Script', cursive; font-size: 2rem;
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
       animation: pastelTransition 10s infinite linear;
     }
     .top-left-image {
-      width: 150px; border-radius: 10px;
+      width: 150px;
+      border-radius: 10px;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
     .top-left-image:hover { transform: scale(1.1); opacity: 0.8; }
     nav {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 20px; background: rgba(51,51,51,0.7);
-      backdrop-filter: blur(5px); position: sticky; top: 0; z-index: 1000;
-      margin-bottom: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: rgba(51,51,51,0.7);
+      backdrop-filter: blur(5px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      margin-bottom: 50px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     .nav-left { display: flex; align-items: center; gap: 10px; }
     .nav-logo-img { width: 40px; border-radius: 50%; }
     .logo-text {
-      font-family: 'Parisienne', cursive; font-size: 2rem; font-weight: bold;
+      font-family: 'Parisienne', cursive;
+      font-size: 2rem;
+      font-weight: bold;
       animation: pastelBlueTransition 10s infinite linear;
     }
     .nav-right { display: flex; gap: 30px; flex-wrap: wrap; }
     .nav-button {
-      padding: 15px 30px; border-radius: 30px; text-decoration: none;
-      font-family: 'Dancing Script', cursive; font-size: 1.5rem; font-weight: bold;
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      font-weight: bold;
       color: black;
       background: linear-gradient(45deg, #9a6fbc, #b9a0d4, #6b52a3, #b9a0d4, #9a6fbc);
-      background-size: 400% 400%; animation: rainbow 5s ease infinite;
+      background-size: 400% 400%;
+      animation: rainbow 5s ease infinite;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       transition: transform 0.3s ease;
     }
     .nav-button:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
     main { flex: 1; padding: 20px; }
-    /* Checkout Section styling with grid layout for order summary */
+    /* Checkout Section with grid layout for order summary */
     #checkout {
       background: rgba(51,51,51,0.7);
       border: 5px solid #9a6fbc;
@@ -151,12 +185,11 @@
       margin: 0;
       padding: 5px 0;
     }
-    /* Checkout Form - Now minimal, no extra fields */
-    /* You wanted to remove the full name and address parts */
+    /* Minimal checkout form */
     #checkout-form {
       margin-top: 20px;
     }
-    /* Button Styles (same as before) */
+    /* Button Styles */
     .btn {
       padding: 12px 20px;
       border-radius: 30px;
@@ -226,7 +259,7 @@
       <div id="order-summary">
         <!-- Order summary items will be inserted here in a grid format -->
       </div>
-      <!-- Minimal checkout form now -->
+      <!-- Minimal checkout form (fields removed as requested) -->
       <form id="checkout-form">
         <button type="submit" class="btn">Place Order</button>
       </form>
@@ -251,7 +284,6 @@
     <p>&copy; 2023 Pretty Little Stitches. All rights reserved.</p>
   </footer>
   <script>
-    // When the checkout page loads, display the order summary from localStorage
     document.addEventListener("DOMContentLoaded", function() {
       displayOrderSummary();
       document.getElementById('checkout-form').addEventListener('submit', function(e) {
@@ -275,7 +307,6 @@
         summaryDiv.innerHTML = "<p>Your cart is empty.</p>";
       } else {
         let total = 0;
-        // Use grid layout to display each item with a remove button
         cart.forEach((item, index) => {
           summaryDiv.innerHTML += `
             <div class="order-row">
