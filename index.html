@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pretty Little Stitches - Handmade Crochet Creations</title>
+  <!-- Load fonts including Great Vibes for the special S and elegant styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Parisienne&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Keyframes for pastel color transition */
+    @keyframes pastelTransition {
+      0%   { color: #ffb3ba; }
+      25%  { color: #ffdfba; }
+      50%  { color: #ffffba; }
+      75%  { color: #bae1ff; }
+      100% { color: #ffb3ba; }
+    }
+    /* New keyframes for pastel blue transition */
+    @keyframes pastelBlueTransition {
+      0%   { color: #ffb6c1; }
+      33%  { color: #add8e6; }
+      66%  { color: #afeeee; }
+      100% { color: #ffb6c1; }
+    }
+    /* Basic reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #6a3d8d;
+      background-image: linear-gradient(45deg, #4b2f6b 0%, #7b4a97 100%);
+      font-family: 'Quicksand', sans-serif;
+      justify-content: flex-start;
+      text-align: center;
+    }
+    /* Rainbow Gradient Animation */
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .rainbow-text {
+      background: linear-gradient(45deg, #9a6fbc, #b9a0d4, #6b52a3, #b9a0d4, #9a6fbc);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: rainbow 5s ease infinite;
+    }
+    header {
+      padding: 50px 0;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border-bottom: 3px solid rgba(255,255,255,0.3);
+      margin-bottom: 50px;
+      border-radius: 15px;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .top-left-container {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header-social-links {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+    .header-social-links img {
+      width: 25px;
+      transition: transform 0.3s ease;
+    }
+    .header-social-links img:hover {
+      transform: scale(1.2);
+    }
+    /* Footer Social Media Images */
+    .social-links img {
+      width: 25px;
+      margin: 0 5px;
+      transition: transform 0.3s ease;
+    }
+    .social-links img:hover {
+      transform: scale(1.2);
+    }
+    header h1 {
+      font-family: 'Parisienne', cursive;
+      font-size: 4.5rem;
+      margin-bottom: 10px;
+      background: linear-gradient(45deg, #9a6fbc, #b9a0d4, #6b52a3, #b9a0d4, #9a6fbc);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: rainbow 5s ease infinite;
+    }
+    .special-s {
+      font-family: 'Great Vibes', cursive;
+      animation: none;
+      color: inherit;
+    }
+    header p {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      animation: pastelTransition 10s infinite linear;
+    }
+    .top-left-image {
+      width: 150px;
+      border-radius: 10px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .top-left-image:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: rgba(51,51,51,0.7);
+      backdrop-filter: blur(5px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      margin-bottom: 50px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo-img {
+      width: 40px;
+      border-radius: 50%;
+    }
+    .logo-text {
+      font-family: 'Parisienne', cursive;
+      font-size: 2rem;
+      font-weight: bold;
+      animation: pastelBlueTransition 10s infinite linear;
+    }
+    .nav-right {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .nav-button {
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: black;
+      background: linear-gradient(45deg, #9a6fbc, #b9a0d4, #6b52a3, #b9a0d4, #9a6fbc);
+      background-size: 400% 400%;
+      animation: rainbow 5s ease infinite;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .nav-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    .hero {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    /* Our Products Section and Reviews Section */
+    #products, #reviews {
+      background: rgba(51,51,51,0.7);
+    }
+    section h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      margin: 0 auto 20px auto;
+      padding-bottom: 5px;
+      width: fit-content;
+      border-bottom: 3px solid #9a6fbc;
+      animation: pastelTransition 10s infinite linear;
+    }
+    .btn {
+      background: linear-gradient(45deg, #9a6fbc, #b9a0d4);
+      color: black;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+    .product {
+      display: inline-block;
+      width: 250px;
+      margin: 20px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+    .product:hover {
+      transform: scale(1.05);
+    }
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .product h3 {
+      font-family: 'Parisienne', cursive;
+      color: #9a6fbc;
+      margin-bottom: 10px;
+    }
+    .product p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 10px;
+    }
+    .product .price {
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: #9a6fbc;
+    }
+    .product .btn-cart,
+    .product .btn-buy {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 30px;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: #9a6fbc;
+      color: black;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .product .btn-cart:hover,
+    .product .btn-buy:hover {
+      background-color: #7b4a97;
+    }
+    .star-rating {
+      color: gold;
+    }
+    .review-container {
+      display: inline-block;
+      width: 300px;
+      margin: 20px;
+      background: rgba(255,255,255,0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      backdrop-filter: blur(5px);
+      text-align: center;
+    }
+    .review-container img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .review-container h4 {
+      font-family: 'Parisienne', cursive;
+      color: #9a6fbc;
+      margin-bottom: 10px;
+    }
+    .review-container p {
+      font-size: 1rem;
+      color: #444;
+    }
+    .cart-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #9a6fbc;
+      color: black;
+      padding: 15px 20px;
+      border-radius: 50%;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .cart-button:hover {
+      background-color: #7b4a97;
+      transform: scale(1.1);
+    }
+    section {
+      border: 5px solid #9a6fbc;
+      border-radius: 25px;
+      margin: 20px 0;
+      padding: 20px;
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: box-shadow 0.3s ease;
+      text-align: center;
+    }
+    section:hover {
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-left-container">
+      <div class="header-social-links">
+        <a href="https://www.facebook.com/JMPrettyLittleStitches" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/jmprettylittlestitches/">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com/@jm_prettylittlestitches">
+          <img src="https://cdn.worldvectorlogo.com/logos/tiktok-1.svg" alt="TikTok">
+        </a>
+      </div>
+      <img src="https://i.imgur.com/U3hPhkA_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="Pretty Little Stitches" class="top-left-image">
+    </div>
+    <h1 class="rainbow-text">Pretty Little <span class="special-s">S</span>titches</h1>
+    <p>Handmade Crochet Creations</p>
+  </header>
+  <nav>
+    <div class="nav-left">
+      <img src="https://i.imgur.com/U3hPhkA_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="Logo" class="nav-logo-img">
+      <div class="logo-text">Pretty Little <span class="special-s">S</span>titches</div>
+    </div>
+    <div class="nav-right">
+      <a href="#home" class="nav-button">Home</a>
+      <a href="#products" class="nav-button">Our Products</a>
+      <a href="#about" class="nav-button">About</a>
+      <a href="#contact" class="nav-button">Contact</a>
+    </div>
+  </nav>
+  <main>
+    <!-- Our Products Section -->
+    <section id="products">
+      <h2>Our Products</h2>
+      <div class="product">
+        <img src="https://i.imgur.com/uSuqirP.png" alt="Pickle Pop-It Pattern">
+        <h3>Pickle Pop-It</h3>
+        <p>Crochet Pattern for the Pickle Pop-It. (Digital Download)</p>
+        <div class="price">$3.00</div>
+        <button class="btn-cart">Add to Cart</button>
+        <a href="Pickle Pop-It.pdf" target="_blank">
+          <button class="btn-buy">Buy It Now</button>
+        </a>
+      </div>
+    </section>
+    <!-- Reviews Section -->
+    <section id="reviews">
+      <h2>Customer Reviews</h2>
+      <div class="review-container">
+        <img src="https://www.stockvault.net/data/2020/01/16/272055/preview16.jpg" alt="Customer 1">
+        <h4>Jane Doe</h4>
+        <p>"I absolutely love my crochet scarf! It's so soft and well-made. Highly recommend!"</p>
+        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+      </div>
+      <div class="review-container">
+        <img src="https://www.stockvault.net/data/2020/01/16/272056/preview16.jpg" alt="Customer 2">
+        <h4>Emily Smith</h4>
+        <p>"The blanket I bought is perfect for cozy nights in. Beautiful work and quick shipping."</p>
+        <div class="star-rating">⭐⭐⭐⭐</div>
+      </div>
+      <div class="review-container">
+        <img src="https://www.stockvault.net/data/2020/01/16/272057/preview16.jpg" alt="Customer 3">
+        <h4>Mark Johnson</h4>
+        <p>"I bought an amigurumi bear for my niece, and she loves it! Such a cute and high-quality gift."</p>
+        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="contact-info">
+      <p>Email: contact@prettylittlestitches.com</p>
+      <p>Contact me on any of my socials!</p>
+    </div>
+    <div class="social-links">
+      <a href="https://www.facebook.com/JMPrettyLittleStitches" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/jmprettylittlestitches/">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+      </a>
+      <a href="https://www.tiktok.com/@jm_prettylittlestitches">
+        <img src="https://cdn.worldvectorlogo.com/logos/tiktok-1.svg" alt="TikTok">
+      </a>
+    </div>
+    <p>&copy; 2023 Pretty Little Stitches. All rights reserved.</p>
+  </footer>
+  <button class="cart-button">🛒</button>
+</body>
+</html>
