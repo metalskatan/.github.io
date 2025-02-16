@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pretty Little Stitches - Handmade Crochet Creations</title>
-  <!-- Load fonts including Great Vibes for the special S and elegant styling -->
+  <title>Shop - Pretty Little Stitches</title>
+  <!-- Load the same fonts as index.html -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Parisienne&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
     /* Keyframes for pastel color transition */
@@ -15,7 +15,7 @@
       75%  { color: #bae1ff; }
       100% { color: #ffb3ba; }
     }
-    /* New keyframes for pastel blue transition */
+    /* Keyframes for pastel blue transition */
     @keyframes pastelBlueTransition {
       0%   { color: #ffb6c1; }
       33%  { color: #add8e6; }
@@ -86,7 +86,6 @@
     .header-social-links img:hover {
       transform: scale(1.2);
     }
-    /* Footer Social Media Images */
     .social-links img {
       width: 25px;
       margin: 0 5px;
@@ -176,42 +175,25 @@
       transform: scale(1.1);
       box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
-    .hero {
+    main {
       flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 50px 20px;
+      padding: 20px;
+    }
+    /* Our Products Section with transparent dark grey container */
+    #products {
+      background: rgba(51,51,51,0.7);
+      border: 5px solid #9a6fbc;
+      border-radius: 25px;
+      margin: 20px 0;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: box-shadow 0.3s ease;
       text-align: center;
     }
-    /* Our Products Section and Reviews Section */
-    #products, #reviews {
-      background: rgba(51,51,51,0.7);
+    #products:hover {
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
     }
-    section h2 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
-      margin: 0 auto 20px auto;
-      padding-bottom: 5px;
-      width: fit-content;
-      border-bottom: 3px solid #9a6fbc;
-      animation: pastelTransition 10s infinite linear;
-    }
-    .btn {
-      background: linear-gradient(45deg, #9a6fbc, #b9a0d4);
-      color: black;
-      padding: 15px 40px;
-      border: none;
-      border-radius: 30px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      transition: all 0.3s ease;
-    }
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-    }
+    /* Product styling matching landing page */
     .product {
       display: inline-block;
       width: 250px;
@@ -247,13 +229,9 @@
       font-size: 1.3rem;
       color: #9a6fbc;
     }
-    .product .btn-cart,
-    .product .btn-buy {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
+    .btn {
+      padding: 12px 20px;
       border-radius: 30px;
-      text-align: center;
       font-size: 1rem;
       font-weight: bold;
       background-color: #9a6fbc;
@@ -262,39 +240,10 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin: 10px 5px;
     }
-    .product .btn-cart:hover,
-    .product .btn-buy:hover {
+    .btn:hover {
       background-color: #7b4a97;
-    }
-    .star-rating {
-      color: gold;
-    }
-    .review-container {
-      display: inline-block;
-      width: 300px;
-      margin: 20px;
-      background: rgba(255,255,255,0.8);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      backdrop-filter: blur(5px);
-      text-align: center;
-    }
-    .review-container img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-    }
-    .review-container h4 {
-      font-family: 'Parisienne', cursive;
-      color: #9a6fbc;
-      margin-bottom: 10px;
-    }
-    .review-container p {
-      font-size: 1rem;
-      color: #444;
     }
     .cart-button {
       position: fixed;
@@ -313,18 +262,58 @@
       background-color: #7b4a97;
       transform: scale(1.1);
     }
-    section {
-      border: 5px solid #9a6fbc;
-      border-radius: 25px;
-      margin: 20px 0;
+    footer {
+      background: rgba(51,51,51,0.7);
       padding: 20px;
-      position: relative;
+      border-top: 3px solid rgba(255,255,255,0.3);
+      margin-top: 50px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      transition: box-shadow 0.3s ease;
-      text-align: center;
     }
-    section:hover {
-      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    footer .social-links img {
+      width: 25px;
+      margin: 0 5px;
+      transition: transform 0.3s ease;
+    }
+    footer .social-links img:hover {
+      transform: scale(1.2);
+    }
+    footer p {
+      color: #fff;
+      margin-top: 10px;
+    }
+    /* Modal Styles for Cart */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 10px;
+      text-align: left;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -353,48 +342,24 @@
       <div class="logo-text">Pretty Little <span class="special-s">S</span>titches</div>
     </div>
     <div class="nav-right">
-      <a href="#home" class="nav-button">Home</a>
+      <a href="index.html" class="nav-button">Home</a>
       <a href="shop.html" class="nav-button">Shop</a>
-      <a href="#products" class="nav-button">Our Products</a>
-      <a href="#about" class="nav-button">About</a>
-      <a href="#contact" class="nav-button">Contact</a>
+      <a href="index.html#products" class="nav-button">Our Products</a>
+      <a href="index.html#about" class="nav-button">About</a>
+      <a href="index.html#contact" class="nav-button">Contact</a>
     </div>
   </nav>
   <main>
-    <!-- Our Products Section -->
+    <!-- Our Products Section with transparent dark grey container -->
     <section id="products">
       <h2>Our Products</h2>
       <div class="product">
         <img src="https://i.imgur.com/uSuqirP.png" alt="Pickle Pop-It Pattern">
-        <h3>Pickle Pop-It</h3>
+        <h3>Pickle Pop-It Pattern</h3>
         <p>Crochet Pattern for the Pickle Pop-It. (Digital Download)</p>
-        <div class="price">$3.00</div>
-        <button class="btn-cart">Add to Cart</button>
-        <a href="Pickle Pop-It.pdf" target="_blank">
-          <button class="btn-buy">Buy It Now</button>
-        </a>
-      </div>
-    </section>
-    <!-- Reviews Section -->
-    <section id="reviews">
-      <h2>Customer Reviews</h2>
-      <div class="review-container">
-        <img src="https://www.stockvault.net/data/2020/01/16/272055/preview16.jpg" alt="Customer 1">
-        <h4>Jane Doe</h4>
-        <p>"I absolutely love my crochet scarf! It's so soft and well-made. Highly recommend!"</p>
-        <div class="star-rating">⭐⭐⭐⭐⭐</div>
-      </div>
-      <div class="review-container">
-        <img src="https://www.stockvault.net/data/2020/01/16/272056/preview16.jpg" alt="Customer 2">
-        <h4>Emily Smith</h4>
-        <p>"The blanket I bought is perfect for cozy nights in. Beautiful work and quick shipping."</p>
-        <div class="star-rating">⭐⭐⭐⭐</div>
-      </div>
-      <div class="review-container">
-        <img src="https://www.stockvault.net/data/2020/01/16/272057/preview16.jpg" alt="Customer 3">
-        <h4>Mark Johnson</h4>
-        <p>"I bought an amigurumi bear for my niece, and she loves it! Such a cute and high-quality gift."</p>
-        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+        <p class="price">$3.00</p>
+        <button class="btn" onclick="addToCart('Pickle Pop-It Pattern', 3.00)">Add to Cart</button>
+        <button class="btn" onclick="buyNow('Pickle Pop-It Pattern', 3.00)">Buy It Now</button>
       </div>
     </section>
   </main>
@@ -416,6 +381,102 @@
     </div>
     <p>&copy; 2023 Pretty Little Stitches. All rights reserved.</p>
   </footer>
-  <button class="cart-button">🛒</button>
+  <button class="cart-button" id="open-cart">🛒</button>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-cart">&times;</span>
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <button class="btn" onclick="clearCart()">Clear Cart</button>
+    </div>
+  </div>
+
+  <script>
+    // Function to add a product to the cart using localStorage
+    function addToCart(product, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ product: product, price: price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(product + " has been added to your cart.");
+    }
+    // Function to simulate a "Buy It Now" action
+    function buyNow(product, price) {
+      alert("Proceeding to checkout for " + product + " at $" + price);
+      // In a real-world scenario, redirect to a checkout page:
+      // window.location.href = 'checkout.html';
+    }
+    // Function to display cart items in the modal
+    function showCart() {
+      const modal = document.getElementById('cart-modal');
+      const cartItemsDiv = document.getElementById('cart-items');
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      // Clear existing items
+      cartItemsDiv.innerHTML = '';
+      if(cart.length === 0){
+        cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
+      } else {
+        cart.forEach((item) => {
+          cartItemsDiv.innerHTML += `<p>${item.product} - $${item.price.toFixed(2)}</p>`;
+        });
+      }
+      modal.style.display = 'block';
+    }
+    // Function to clear the cart
+    function clearCart() {
+      localStorage.removeItem('cart');
+      document.getElementById('cart-items').innerHTML = '<p>Your cart is empty.</p>';
+    }
+    // Event listener for cart button
+    document.getElementById('open-cart').addEventListener('click', showCart);
+    // Event listener for close button
+    document.getElementById('close-cart').addEventListener('click', function() {
+      document.getElementById('cart-modal').style.display = 'none';
+    });
+    // Close modal when clicking outside the modal content
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('cart-modal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+  <style>
+    /* Modal styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 10px;
+      text-align: left;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+    }
+  </style>
 </body>
 </html>
