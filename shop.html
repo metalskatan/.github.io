@@ -191,7 +191,7 @@
     section:hover {
       box-shadow: 0 0 20px rgba(0,0,0,0.7);
     }
-    /* Product styling similar to index.html */
+    /* Product styling to match landing page */
     .product {
       display: inline-block;
       width: 250px;
@@ -314,9 +314,9 @@
     </div>
   </nav>
   <main>
-    <section id="shop">
-      <h2>Shop</h2>
-      <!-- Example Product -->
+    <!-- Our Products Section -->
+    <section id="products">
+      <h2>Our Products</h2>
       <div class="product">
         <img src="https://i.imgur.com/uSuqirP.png" alt="Pickle Pop-It Pattern">
         <h3>Pickle Pop-It Pattern</h3>
@@ -326,6 +326,28 @@
         <button class="btn" onclick="buyNow('Pickle Pop-It Pattern', 3.00)">Buy It Now</button>
       </div>
       <!-- Add more product divs here as needed -->
+    </section>
+    <!-- Reviews Section -->
+    <section id="reviews">
+      <h2>Customer Reviews</h2>
+      <div class="review-container">
+        <img src="https://www.stockvault.net/data/2020/01/16/272055/preview16.jpg" alt="Customer 1">
+        <h4>Jane Doe</h4>
+        <p>"I absolutely love my crochet scarf! It's so soft and well-made. Highly recommend!"</p>
+        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+      </div>
+      <div class="review-container">
+        <img src="https://www.stockvault.net/data/2020/01/16/272056/preview16.jpg" alt="Customer 2">
+        <h4>Emily Smith</h4>
+        <p>"The blanket I bought is perfect for cozy nights in. Beautiful work and quick shipping."</p>
+        <div class="star-rating">⭐⭐⭐⭐</div>
+      </div>
+      <div class="review-container">
+        <img src="https://www.stockvault.net/data/2020/01/16/272057/preview16.jpg" alt="Customer 3">
+        <h4>Mark Johnson</h4>
+        <p>"I bought an amigurumi bear for my niece, and she loves it! Such a cute and high-quality gift."</p>
+        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+      </div>
     </section>
   </main>
   <footer>
@@ -358,7 +380,7 @@
     // Function to simulate a "Buy It Now" action
     function buyNow(product, price) {
       alert("Proceeding to checkout for " + product + " at $" + price);
-      // In a real-world scenario, redirect to a checkout page:
+      // Redirect to a checkout page if needed:
       // window.location.href = 'checkout.html';
     }
   </script>
