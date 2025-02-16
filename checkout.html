@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout - Pretty Little Stitches</title>
-  <!-- Load fonts -->
+  <title>Index - Pretty Little Stitches</title>
+  <!-- Load the same fonts as index.html -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Parisienne&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
     /* Keyframes for pastel color transition */
@@ -25,13 +25,13 @@
     /* Basic reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      display: flex; 
-      flex-direction: column; 
+      display: flex;
+      flex-direction: column;
       min-height: 100vh;
       background-color: #6a3d8d;
-      background-image: linear-gradient(45deg, #4b2f6b 0%, #7b4a97 100%);
+      background-image: linear-gradient(45deg, #4b2f6b, #7b4a97);
       font-family: 'Quicksand', sans-serif;
-      justify-content: flex-start; 
+      justify-content: flex-start;
       text-align: center;
     }
     /* Rainbow Gradient Animation */
@@ -147,56 +147,6 @@
     }
     .nav-button:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
     main { flex: 1; padding: 20px; }
-    /* Checkout Section with dark transparent grey background */
-    #checkout {
-      background: rgba(51,51,51,0.7);
-      border: 5px solid #9a6fbc;
-      border-radius: 25px;
-      margin: 20px auto;
-      padding: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      transition: box-shadow 0.3s ease;
-      max-width: 600px;
-      text-align: center;
-    }
-    #checkout:hover { box-shadow: 0 0 20px rgba(0,0,0,0.7); }
-    /* Order Summary Grid Styles with dark background and black borders */
-    #order-summary {
-      background: rgba(51,51,51,0.7);
-      color: #fff;
-      display: grid;
-      grid-template-columns: 1fr auto auto;
-      gap: 10px;
-      padding: 10px;
-      border: 2px solid #000;
-      border-radius: 15px;
-      text-align: left;
-      margin-bottom: 15px;
-    }
-    .order-row {
-      display: contents;
-      border-bottom: 1px solid #000;
-      padding-bottom: 5px;
-    }
-    .order-row:last-child { border-bottom: none; }
-    .order-row div { padding: 5px 0; }
-    /* Minimal checkout form */
-    #checkout-form { margin-top: 20px; }
-    /* Button Styles */
-    .btn {
-      padding: 12px 20px;
-      border-radius: 30px;
-      font-size: 1rem;
-      font-weight: bold;
-      background-color: #9a6fbc;
-      color: black;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin: 10px 5px;
-    }
-    .btn:hover { background-color: #7b4a97; }
     footer {
       background: rgba(51,51,51,0.7);
       padding: 20px;
@@ -247,16 +197,9 @@
     </div>
   </nav>
   <main>
-    <section id="checkout">
-      <h2>Checkout</h2>
-      <div id="order-summary">
-        <!-- Order summary items will be inserted here in a grid format -->
-      </div>
-      <!-- Minimal checkout form -->
-      <form id="checkout-form">
-        <button type="submit" class="btn">Place Order</button>
-      </form>
-    </section>
+    <!-- Main content for home page goes here -->
+    <h2>Welcome to Pretty Little Stitches</h2>
+    <p>This is the home page.</p>
   </main>
   <footer>
     <div class="contact-info">
@@ -276,106 +219,5 @@
     </div>
     <p>&copy; 2023 Pretty Little Stitches. All rights reserved.</p>
   </footer>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      displayOrderSummary();
-      document.getElementById('checkout-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Simulate order processing.
-        alert("Thank you for your order!");
-        clearCart();
-        displayOrderSummary();
-      });
-    });
-    
-    function getCartItems() {
-      return JSON.parse(localStorage.getItem('cart')) || [];
-    }
-    
-    // Aggregate the cart items so each product appears only once.
-    function aggregateCart() {
-      let cart = getCartItems();
-      let grouped = {};
-      cart.forEach(item => {
-        let key = item.product.trim().toLowerCase();
-        if (grouped[key]) {
-          grouped[key].quantity += item.quantity || 1;
-        } else {
-          grouped[key] = { product: key, price: item.price, quantity: item.quantity || 1 };
-        }
-      });
-      return Object.values(grouped);
-    }
-    
-    // Display the order summary using aggregated cart items.
-    function displayOrderSummary() {
-      const summaryDiv = document.getElementById('order-summary');
-      let aggregated = aggregateCart();
-      // Save aggregated cart to localStorage so further updates use the grouped data.
-      localStorage.setItem('cart', JSON.stringify(aggregated));
-      summaryDiv.innerHTML = "";
-      if (aggregated.length === 0) {
-        summaryDiv.innerHTML = "<p>Your cart is empty.</p>";
-        return;
-      }
-      
-      let total = 0;
-      aggregated.forEach((item, index) => {
-        summaryDiv.innerHTML += `
-          <div class="order-row">
-            <div>${capitalize(item.product)} - $${item.price.toFixed(2)}</div>
-            <div>
-              Qty: 
-              <select onchange="updateGroupedQuantity('${item.product}', this.value)">
-                ${[...Array(20).keys()].map(n => {
-                  const num = n + 1;
-                  return `<option value="${num}" ${num === item.quantity ? "selected" : ""}>${num}</option>`;
-                }).join('')}
-              </select>
-            </div>
-            <div>
-              <button class="btn" onclick="removeGroupedItem('${item.product}')">🗑️</button>
-            </div>
-          </div>
-        `;
-        total += item.price * item.quantity;
-      });
-      summaryDiv.innerHTML += `
-        <div class="order-row" style="font-weight: bold; text-align: right; grid-column: 1 / -1;">
-          Total: $${total.toFixed(2)}
-        </div>
-      `;
-    }
-    
-    function capitalize(str) {
-      return str.charAt(0).toUpperCase() + str.slice(1);
-    }
-    
-    function updateGroupedQuantity(product, newQuantity) {
-      let cart = aggregateCart();
-      product = product.trim().toLowerCase();
-      cart = cart.map(item => {
-        if (item.product === product) {
-          item.quantity = parseInt(newQuantity);
-        }
-        return item;
-      });
-      localStorage.setItem('cart', JSON.stringify(cart));
-      displayOrderSummary();
-    }
-    
-    function removeGroupedItem(product) {
-      let cart = aggregateCart();
-      product = product.trim().toLowerCase();
-      cart = cart.filter(item => item.product !== product);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      displayOrderSummary();
-    }
-    
-    function clearCart() {
-      localStorage.removeItem('cart');
-      displayOrderSummary();
-    }
-  </script>
 </body>
 </html>
