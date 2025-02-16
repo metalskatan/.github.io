@@ -4,25 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout - Pretty Little Stitches</title>
-  <!-- Load fonts matching index.html -->
+  <!-- Load the same fonts as index.html -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Parisienne&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Keyframes for pastel color transition */
-    @keyframes pastelTransition {
-      0%   { color: #ffb3ba; }
-      25%  { color: #ffdfba; }
-      50%  { color: #ffffba; }
-      75%  { color: #bae1ff; }
-      100% { color: #ffb3ba; }
-    }
-    /* Keyframes for pastel blue transition */
-    @keyframes pastelBlueTransition {
-      0%   { color: #ffb6c1; }
-      33%  { color: #add8e6; }
-      66%  { color: #afeeee; }
-      100% { color: #ffb6c1; }
-    }
-    /* Basic reset */
+    /* Use the same styles as in shop.html for consistency */
+    /* (You can reuse your CSS or link to a common stylesheet) */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       display: flex; flex-direction: column; min-height: 100vh;
@@ -31,7 +17,6 @@
       font-family: 'Quicksand', sans-serif;
       justify-content: flex-start; text-align: center;
     }
-    /* Rainbow Gradient Animation */
     @keyframes rainbow {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -50,59 +35,29 @@
       border-bottom: 3px solid rgba(255,255,255,0.3);
       margin-bottom: 50px;
       border-radius: 15px;
-      position: relative;
-      text-align: center;
+      position: relative; text-align: center;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
-    .top-left-container {
-      position: absolute; left: 10px; top: 50%;
-      transform: translateY(-50%); width: 150px;
-      display: flex; flex-direction: column; align-items: center;
-    }
-    .header-social-links {
-      width: 100%; display: flex;
-      justify-content: space-between; margin-bottom: 5px;
-    }
-    .header-social-links img {
-      width: 25px; transition: transform 0.3s ease;
-    }
+    .top-left-container { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 150px; display: flex; flex-direction: column; align-items: center; }
+    .header-social-links { width: 100%; display: flex; justify-content: space-between; margin-bottom: 5px; }
+    .header-social-links img { width: 25px; transition: transform 0.3s ease; }
     .header-social-links img:hover { transform: scale(1.2); }
-    .social-links img {
-      width: 25px; margin: 0 5px; transition: transform 0.3s ease;
-    }
-    .social-links img:hover { transform: scale(1.2); }
     header h1 {
-      font-family: 'Parisienne', cursive; font-size: 4.5rem;
-      margin-bottom: 10px;
+      font-family: 'Parisienne', cursive; font-size: 4.5rem; margin-bottom: 10px;
       background: linear-gradient(45deg, #9a6fbc, #b9a0d4, #6b52a3, #b9a0d4, #9a6fbc);
-      background-size: 400% 400%;
-      -webkit-background-clip: text; background-clip: text;
+      background-size: 400% 400%; -webkit-background-clip: text; background-clip: text;
       color: transparent; animation: rainbow 5s ease infinite;
     }
-    .special-s {
-      font-family: 'Great Vibes', cursive; animation: none; color: inherit;
-    }
-    header p {
-      font-family: 'Dancing Script', cursive; font-size: 2rem;
-      animation: pastelTransition 10s infinite linear;
-    }
-    .top-left-image {
-      width: 150px; border-radius: 10px;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-    .top-left-image:hover { transform: scale(1.1); opacity: 0.8; }
+    header p { font-family: 'Dancing Script', cursive; font-size: 2rem; animation: pastelTransition 10s infinite linear; }
     nav {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 20px; background: rgba(51,51,51,0.7);
-      backdrop-filter: blur(5px); position: sticky; top: 0; z-index: 1000;
-      margin-bottom: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      padding: 20px; background: rgba(51,51,51,0.7); backdrop-filter: blur(5px);
+      position: sticky; top: 0; z-index: 1000; margin-bottom: 50px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     .nav-left { display: flex; align-items: center; gap: 10px; }
     .nav-logo-img { width: 40px; border-radius: 50%; }
-    .logo-text {
-      font-family: 'Parisienne', cursive; font-size: 2rem; font-weight: bold;
-      animation: pastelBlueTransition 10s infinite linear;
-    }
+    .logo-text { font-family: 'Parisienne', cursive; font-size: 2rem; font-weight: bold; animation: pastelBlueTransition 10s infinite linear; }
     .nav-right { display: flex; gap: 30px; flex-wrap: wrap; }
     .nav-button {
       padding: 15px 30px; border-radius: 30px; text-decoration: none;
@@ -115,23 +70,28 @@
     }
     .nav-button:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
     main { flex: 1; padding: 20px; }
-    /* Checkout Section (similar container style as our products) */
+    /* Checkout Section with transparent dark grey container */
     #checkout {
       background: rgba(51,51,51,0.7);
       border: 5px solid #9a6fbc;
       border-radius: 25px;
-      margin: 20px 0;
+      margin: 20px auto;
       padding: 20px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       transition: box-shadow 0.3s ease;
-      text-align: center;
+      max-width: 600px;
     }
     #checkout:hover { box-shadow: 0 0 20px rgba(0,0,0,0.7); }
-    /* Cart items styling */
-    .cart-item {
-      background: rgba(255,255,255,0.9);
-      padding: 10px; margin: 10px 0;
-      border-radius: 8px; font-size: 1rem;
+    /* Checkout form styles */
+    .form-group { margin-bottom: 15px; text-align: left; }
+    .form-group label { display: block; margin-bottom: 5px; color: #fff; }
+    .form-group input { width: 100%; padding: 10px; border: none; border-radius: 5px; }
+    #order-summary {
+      background: rgba(255,255,255,0.8);
+      padding: 10px; border-radius: 5px;
+      margin-bottom: 15px;
+      color: #000;
+      text-align: left;
     }
     .btn {
       padding: 12px 20px; border-radius: 30px;
@@ -143,22 +103,12 @@
       margin: 10px 5px;
     }
     .btn:hover { background-color: #7b4a97; }
-    .cart-button {
-      position: fixed; bottom: 20px; right: 20px;
-      background-color: #9a6fbc; color: black;
-      padding: 15px 20px; border-radius: 50%;
-      border: none; font-size: 1.5rem; cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    .cart-button:hover { background-color: #7b4a97; transform: scale(1.1); }
     footer {
-      background: rgba(51,51,51,0.7); padding: 20px;
-      border-top: 3px solid rgba(255,255,255,0.3);
+      background: rgba(51,51,51,0.7);
+      padding: 20px; border-top: 3px solid rgba(255,255,255,0.3);
       margin-top: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
-    footer .social-links img {
-      width: 25px; margin: 0 5px; transition: transform 0.3s ease;
-    }
+    footer .social-links img { width: 25px; margin: 0 5px; transition: transform 0.3s ease; }
     footer .social-links img:hover { transform: scale(1.2); }
     footer p { color: #fff; margin-top: 10px; }
   </style>
@@ -197,14 +147,23 @@
     </div>
   </nav>
   <main>
-    <!-- Checkout Section -->
     <section id="checkout">
       <h2>Checkout</h2>
-      <div id="cart-display">
-        <!-- Cart items will be dynamically inserted here -->
+      <div id="order-summary">
+        <!-- Order summary will be dynamically inserted here -->
       </div>
-      <button class="btn" onclick="proceedToPayment()">Proceed to Payment</button>
-      <button class="btn" onclick="clearCart()">Clear Cart</button>
+      <form id="checkout-form">
+        <div class="form-group">
+          <label for="full-name">Full Name</label>
+          <input type="text" id="full-name" name="full-name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <!-- Add additional form fields as necessary -->
+        <button type="submit" class="btn">Place Order</button>
+      </form>
     </section>
   </main>
   <footer>
@@ -226,40 +185,40 @@
     <p>&copy; 2023 Pretty Little Stitches. All rights reserved.</p>
   </footer>
   <script>
+    // When the checkout page loads, display cart items in the order summary
     document.addEventListener("DOMContentLoaded", function() {
-      displayCartItems();
+      displayOrderSummary();
+      document.getElementById('checkout-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // In a real implementation, process payment here.
+        alert("Thank you for your order!");
+        clearCart();
+        displayOrderSummary();
+      });
     });
     
-    // Function to retrieve cart items from localStorage and display them
-    function displayCartItems() {
-      const cartDisplay = document.getElementById('cart-display');
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cartDisplay.innerHTML = '';
+    function getCartItems() {
+      return JSON.parse(localStorage.getItem('cart')) || [];
+    }
+    
+    function displayOrderSummary() {
+      const summaryDiv = document.getElementById('order-summary');
+      const cart = getCartItems();
+      summaryDiv.innerHTML = "";
       if (cart.length === 0) {
-        cartDisplay.innerHTML = '<p>Your cart is empty.</p>';
+        summaryDiv.innerHTML = "<p>Your cart is empty.</p>";
       } else {
-        cart.forEach((item, index) => {
-          cartDisplay.innerHTML += `<div class="cart-item"><p>${item.product} - $${item.price.toFixed(2)}</p></div>`;
+        let total = 0;
+        cart.forEach(item => {
+          summaryDiv.innerHTML += `<p>${item.product} - $${item.price.toFixed(2)}</p>`;
+          total += item.price;
         });
+        summaryDiv.innerHTML += `<p><strong>Total: $${total.toFixed(2)}</strong></p>`;
       }
     }
     
-    // Function to clear the cart
     function clearCart() {
       localStorage.removeItem('cart');
-      displayCartItems();
-      alert("Your cart has been cleared.");
-    }
-    
-    // Function to simulate proceeding to payment
-    function proceedToPayment() {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      if(cart.length === 0){
-        alert("Your cart is empty.");
-      } else {
-        alert("Proceeding to payment...");
-        // Implement actual payment redirection logic here.
-      }
     }
   </script>
 </body>
