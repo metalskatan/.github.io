@@ -147,7 +147,7 @@
     }
     .nav-button:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
     main { flex: 1; padding: 20px; }
-    /* Checkout Section styling */
+    /* Checkout Section with dark transparent grey background */
     #checkout {
       background: rgba(51,51,51,0.7);
       border: 5px solid #9a6fbc;
@@ -160,7 +160,7 @@
       text-align: center;
     }
     #checkout:hover { box-shadow: 0 0 20px rgba(0,0,0,0.7); }
-    /* Order Summary Grid Styles with black borders */
+    /* Order Summary Grid Styles with dark background and black borders */
     #order-summary {
       background: rgba(51,51,51,0.7);
       color: #fff;
@@ -288,12 +288,12 @@
       });
     });
     
-    // Aggregated addToCart function (this is usually called on shop page)
+    // Aggregated addToCart function (typically used on the shop page)
     function addToCart(product, price) {
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      // Aggregate items case-insensitively.
+      // Find the product in cart case-insensitively.
       let index = cart.findIndex(item => item.product.toLowerCase() === product.toLowerCase());
-      if(index !== -1) {
+      if (index !== -1) {
         cart[index].quantity = (cart[index].quantity || 1) + 1;
       } else {
         cart.push({ product: product, price: price, quantity: 1 });
@@ -306,6 +306,7 @@
       return JSON.parse(localStorage.getItem('cart')) || [];
     }
     
+    // Display order summary by grouping items (each product appears only once)
     function displayOrderSummary() {
       const summaryDiv = document.getElementById('order-summary');
       const cart = getCartItems();
@@ -314,13 +315,14 @@
         summaryDiv.innerHTML = "<p>Your cart is empty.</p>";
       } else {
         let total = 0;
+        // Here we assume the cart is already aggregated by addToCart.
         cart.forEach((item, index) => {
           summaryDiv.innerHTML += `
             <div class="order-row">
               <div>${item.product} - $${item.price.toFixed(2)}</div>
               <div>
                 Qty: 
-                <select onchange="updateQuantity(${index}, this.value)">
+                <select onchange="updateQuantityByIndex(${index}, this.value)">
                   ${[...Array(20).keys()].map(n => {
                     const num = n + 1;
                     return `<option value="${num}" ${num === item.quantity ? "selected" : ""}>${num}</option>`;
@@ -342,13 +344,15 @@
       }
     }
     
-    function updateQuantity(index, newQuantity) {
+    // Update quantity for an item based on its index
+    function updateQuantityByIndex(index, newQuantity) {
       let cart = getCartItems();
       cart[index].quantity = parseInt(newQuantity);
       localStorage.setItem('cart', JSON.stringify(cart));
       displayOrderSummary();
     }
     
+    // Remove a cart item based on its index
     function removeCartItem(index) {
       let cart = getCartItems();
       cart.splice(index, 1);
