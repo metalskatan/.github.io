@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pretty Little Stitches - Our Store</title>
+  <!-- Load the same fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Parisienne&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Reuse keyframes and base styles from the landing page */
+    @keyframes pastelTransition {
+      0%   { color: #ffb3ba; }
+      25%  { color: #ffdfba; }
+      50%  { color: #ffffba; }
+      75%  { color: #bae1ff; }
+      100% { color: #ffb3ba; }
+    }
+    @keyframes pastelBlueTransition {
+      0%   { color: #ffb6c1; }
+      33%  { color: #add8e6; }
+      66%  { color: #afeeee; }
+      100% { color: #ffb6c1; }
+    }
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #6a3d8d;
+      background-image: linear-gradient(45deg, #4b2f6b 0%, #7b4a97 100%);
+      font-family: 'Quicksand', sans-serif;
+      text-align: center;
+      justify-content: flex-start;
+    }
+    /* Social Media Container Styles */
+    .top-left-container {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header-social-links {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+    .header-social-links img {
+      width: 25px;
+      transition: transform 0.3s ease;
+    }
+    .header-social-links img:hover {
+      transform: scale(1.2);
+    }
+    .top-left-image {
+      width: 150px;
+      border-radius: 10px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .top-left-image:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+    header {
+      padding: 50px 0;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border-bottom: 3px solid rgba(255,255,255,0.3);
+      margin-bottom: 50px;
+      border-radius: 15px;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .rainbow-text {
+      background: linear-gradient(45deg, #9a6fbc, #b9a0d4, #6b52a3, #b9a0d4, #9a6fbc);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: rainbow 5s ease infinite;
+    }
+    .special-s {
+      font-family: 'Great Vibes', cursive;
+      animation: none;
+      color: inherit;
+    }
+    header h1 {
+      font-family: 'Parisienne', cursive;
+      font-size: 4.5rem;
+      margin-bottom: 10px;
+      animation: rainbow 5s ease infinite;
+      background: linear-gradient(45deg, #9a6fbc, #b9a0d4, #6b52a3, #b9a0d4, #9a6fbc);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    header p {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      animation: pastelTransition 10s infinite linear;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: rgba(51,51,51,0.7);
+      backdrop-filter: blur(5px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      margin-bottom: 50px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo-img {
+      width: 40px;
+      border-radius: 50%;
+    }
+    .logo-text {
+      font-family: 'Parisienne', cursive;
+      font-size: 2rem;
+      font-weight: bold;
+      animation: pastelBlueTransition 10s infinite linear;
+    }
+    .nav-right {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .nav-button {
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: black;
+      background: linear-gradient(45deg, #9a6fbc, #b9a0d4, #6b52a3, #b9a0d4, #9a6fbc);
+      background-size: 400% 400%;
+      animation: rainbow 5s ease infinite;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .nav-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    main {
+      flex: 1;
+      padding: 50px 20px;
+    }
+    /* Section Styles */
+    section {
+      border: 5px solid #9a6fbc;
+      border-radius: 25px;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 1200px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: box-shadow 0.3s ease;
+      text-align: center;
+    }
+    section:hover {
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    }
+    section h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      padding-bottom: 5px;
+      width: fit-content;
+      border-bottom: 3px solid #9a6fbc;
+      animation: pastelTransition 10s infinite linear;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .product {
+      display: inline-block;
+      width: 250px;
+      margin: 20px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+    .product:hover {
+      transform: scale(1.05);
+    }
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .product h3 {
+      font-family: 'Parisienne', cursive;
+      color: #9a6fbc;
+      margin-bottom: 10px;
+    }
+    .product p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 10px;
+    }
+    .price {
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: #9a6fbc;
+    }
+    .btn-cart,
+    .btn-buy {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: #9a6fbc;
+      color: black;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .btn-cart:hover,
+    .btn-buy:hover {
+      background-color: #7b4a97;
+    }
+    footer {
+      padding: 20px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      margin-top: 50px;
+      border-top: 3px solid rgba(255,255,255,0.3);
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .social-links img {
+      width: 25px;
+      margin: 0 5px;
+      transition: transform 0.3s ease;
+    }
+    .social-links img:hover {
+      transform: scale(1.2);
+    }
+    .cart-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #9a6fbc;
+      color: black;
+      padding: 15px 20px;
+      border-radius: 50%;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .cart-button:hover {
+      background-color: #7b4a97;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section with Social Media Links -->
+  <header>
+    <div class="top-left-container">
+      <div class="header-social-links">
+        <a href="https://www.facebook.com/JMPrettyLittleStitches" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/jmprettylittlestitches/" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com/@jm_prettylittlestitches" target="_blank">
+          <img src="https://cdn.worldvectorlogo.com/logos/tiktok-1.svg" alt="TikTok">
+        </a>
+      </div>
+      <img src="https://i.imgur.com/U3hPhkA_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="Pretty Little Stitches" class="top-left-image">
+    </div>
+    <h1 class="rainbow-text">Pretty Little <span class="special-s">S</span>titches</h1>
+    <p>Handmade Crochet Creations</p>
+  </header>
+  
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-left">
+      <img src="https://i.imgur.com/U3hPhkA_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="Logo" class="nav-logo-img">
+      <div class="logo-text">Pretty Little <span class="special-s">S</span>titches</div>
+    </div>
+    <div class="nav-right">
+      <a href="index.html" class="nav-button">Home</a>
+      <a href="store.html" class="nav-button">Store</a>
+      <a href="#about" class="nav-button">About</a>
+      <a href="#contact" class="nav-button">Contact</a>
+    </div>
+  </nav>
+  
+  <!-- Main Content -->
+  <main>
+    <!-- Section for Physical Products -->
+    <section id="our-products">
+      <h2>Our Products</h2>
+      <!-- Example physical product (add more as needed) -->
+      <div class="product">
+        <img src="https://via.placeholder.com/250x250.png?text=Physical+Item" alt="Physical Item">
+        <h3>Handmade Scarf</h3>
+        <p>Cozy, hand-crocheted scarf for chilly days.</p>
+        <div class="price">$25.00</div>
+        <button class="btn-cart">Add to Cart</button>
+        <a href="checkout.html">
+          <button class="btn-buy">Buy It Now</button>
+        </a>
+      </div>
+    </section>
+    
+    <!-- Section for Digital Patterns -->
+    <section id="digital-patterns">
+      <h2>Patterns for Sale (Digital Downloads)</h2>
+      <!-- Moved Pickle Pop-It product -->
+      <div class="product">
+        <img src="https://i.imgur.com/uSuqirP.png" alt="Pickle Pop-It Pattern">
+        <h3>Pickle Pop-It</h3>
+        <p>Crochet Pattern for the Pickle Pop-It. (Digital Download)</p>
+        <div class="price">$3.00</div>
+        <button class="btn-cart">Add to Cart</button>
+        <a href="checkout.html">
+          <button class="btn-buy">Buy It Now</button>
+        </a>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer Section -->
+  <footer>
+    <div class="social-links">
+      <a href="https://www.facebook.com/JMPrettyLittleStitches" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/jmprettylittlestitches/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+      </a>
+      <a href="https://www.tiktok.com/@jm_prettylittlestitches" target="_blank">
+        <img src="https://cdn.worldvectorlogo.com/logos/tiktok-1.svg" alt="TikTok">
+      </a>
+    </div>
+    <p>&copy; 2023 Pretty Little Stitches. All rights reserved.</p>
+  </footer>
+  
+  <!-- Floating Cart Button -->
+  <button class="cart-button">🛒</button>
+</body>
+</html>
