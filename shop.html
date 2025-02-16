@@ -179,7 +179,9 @@
       flex: 1;
       padding: 20px;
     }
-    section {
+    /* Our Products Section with transparent dark grey background */
+    #products {
+      background: rgba(51,51,51,0.7);
       border: 5px solid #9a6fbc;
       border-radius: 25px;
       margin: 20px 0;
@@ -188,10 +190,10 @@
       transition: box-shadow 0.3s ease;
       text-align: center;
     }
-    section:hover {
+    #products:hover {
       box-shadow: 0 0 20px rgba(0,0,0,0.7);
     }
-    /* Product styling to match landing page */
+    /* Product styling matching landing page */
     .product {
       display: inline-block;
       width: 250px;
@@ -314,7 +316,7 @@
     </div>
   </nav>
   <main>
-    <!-- Our Products Section -->
+    <!-- Our Products Section with transparent dark grey container -->
     <section id="products">
       <h2>Our Products</h2>
       <div class="product">
@@ -325,7 +327,6 @@
         <button class="btn" onclick="addToCart('Pickle Pop-It Pattern', 3.00)">Add to Cart</button>
         <button class="btn" onclick="buyNow('Pickle Pop-It Pattern', 3.00)">Buy It Now</button>
       </div>
-      <!-- Add more product divs here as needed -->
     </section>
     <!-- Reviews Section -->
     <section id="reviews">
@@ -380,7 +381,7 @@
     // Function to simulate a "Buy It Now" action
     function buyNow(product, price) {
       alert("Proceeding to checkout for " + product + " at $" + price);
-      // Redirect to a checkout page if needed:
+      // In a real-world scenario, redirect to a checkout page:
       // window.location.href = 'checkout.html';
     }
   </script>
